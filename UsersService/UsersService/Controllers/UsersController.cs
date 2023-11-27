@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using UsersService.Queries.User.GetAllUsersData;
 using UsersService.Queries.User.GetUserData;
 
 namespace UsersService.Controllers;
@@ -11,7 +12,7 @@ public class UsersController : ControllerBase
     private readonly IMediator _mediator;
 
     #endregion
-    
+
 
     #region Constructors
 
@@ -23,7 +24,7 @@ public class UsersController : ControllerBase
     #endregion
 
     #region Methods
-    
+
     /// <summary>
     /// Method for retrieving user data. 
     /// </summary>
@@ -33,6 +34,16 @@ public class UsersController : ControllerBase
     public async Task<ActionResult<UserDataDto>> GetUserData(long id)
     {
         return await _mediator.Send(new GetUserDataQuery { Id = id });
+    }
+
+    /// <summary>
+    /// Method for retrieving users data.
+    /// </summary>
+    /// <returns>Users data as a list.</returns>
+    [HttpGet("[action]")]
+    public async Task<ActionResult<List<UsersDataDto>>> GetUsersData()
+    {
+        return await _mediator.Send(new GetUsersDataQuery());
     }
 
     #endregion
