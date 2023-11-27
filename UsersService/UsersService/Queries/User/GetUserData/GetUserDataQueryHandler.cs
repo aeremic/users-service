@@ -1,11 +1,38 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using UsersService.Infrastructure;
 
 namespace UsersService.Queries.User.GetUserData;
 
 public class GetUserDataQueryHandler : IRequestHandler<GetUserDataQuery, UserDataDto>
 {
-    public Task<UserDataDto> Handle(GetUserDataQuery request, CancellationToken cancellationToken)
+    #region Properties
+
+    private readonly Repository _repository;
+    private readonly IMapper _mapper;
+
+    #endregion
+
+    #region Constructors
+
+    public GetUserDataQueryHandler(Repository repository, IMapper mapper)
     {
-        throw new NotImplementedException();
+        _repository = repository;
+        _mapper = mapper;
     }
+
+    #endregion
+
+    #region Methods
+
+    public async Task<UserDataDto> Handle(GetUserDataQuery request, CancellationToken cancellationToken)
+    {
+        var user = await _repository.Users.Where((user) => user.Id == request.Id)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        return _mapper.Map<UserDataDto>(user);
+    }
+
+    #endregion
 }
