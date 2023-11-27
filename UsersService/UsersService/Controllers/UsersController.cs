@@ -11,6 +11,7 @@ public class UsersController : ControllerBase
     private readonly IMediator _mediator;
 
     #endregion
+    
 
     #region Constructors
 
