@@ -1,16 +1,19 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
+using UsersService.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configure services.
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddAutoMapper(typeof(Program));
-// builder.Services.AddDbContext<Repository>(
-//     options => options.UseSqlServer("name=ConnectionStrings:Database")
-// );
+builder.Services.AddDbContext<Repository>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Configure authentication.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAdB2C"));
 
