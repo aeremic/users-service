@@ -32,10 +32,10 @@ public class ExternalLoginCommandHandler : IRequestHandler<ExternalLoginCommand,
 
     #region Methods
 
-    public async Task<ExternalLoginDto> Handle(ExternalLoginCommand? request, CancellationToken cancellationToken)
+    public async Task<ExternalLoginDto> Handle(ExternalLoginCommand request, CancellationToken cancellationToken)
     {
         var result = new ExternalLoginDto();
-        if (request == null || string.IsNullOrEmpty(request.IdToken) || string.IsNullOrEmpty(request.Email))
+        if(string.IsNullOrEmpty(request.IdToken) || string.IsNullOrEmpty(request.Email))
         {
             return result;
         }
