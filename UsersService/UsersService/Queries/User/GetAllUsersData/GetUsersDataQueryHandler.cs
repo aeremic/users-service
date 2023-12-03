@@ -30,7 +30,7 @@ public class GetUsersDataQueryHandler : IRequestHandler<GetUsersDataQuery, List<
     {
         var users = await _repository.Users.ToListAsync(cancellationToken);
 
-        return _mapper.Map<List<Domain.User>, List<UsersDataDto>>(users);
+        return _mapper.Map<List<Models.User>, List<UsersDataDto>>(users);
     }
 
     #endregion
