@@ -4,11 +4,10 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using UsersService.Common;
 using UsersService.Models;
-using UsersService.Services.Interfaces;
 
 namespace UsersService.Services;
 
-public class JwtHandler : IJwtHandler
+public class JwtHandler
 {
     #region Properties
 

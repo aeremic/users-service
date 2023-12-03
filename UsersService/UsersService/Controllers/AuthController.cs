@@ -4,6 +4,8 @@ using UsersService.Commands.Auth.ExternalLogin;
 
 namespace UsersService.Controllers;
 
+[Route("api/auth")]
+[ApiController]
 public class AuthController : ControllerBase
 {
     #region Properties

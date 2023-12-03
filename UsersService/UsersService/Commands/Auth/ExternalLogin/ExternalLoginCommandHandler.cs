@@ -5,7 +5,6 @@ using UsersService.Common;
 using UsersService.Infrastructure;
 using UsersService.Models;
 using UsersService.Services;
-using UsersService.Services.Interfaces;
 
 namespace UsersService.Commands.Auth.ExternalLogin;
 
@@ -15,13 +14,13 @@ public class ExternalLoginCommandHandler : IRequestHandler<ExternalLoginCommand,
 
     private readonly IConfigurationSection _googleAuthConfigurationSection;
     private readonly Repository _repository;
-    private readonly IJwtHandler _jwtHandler;
+    private readonly JwtHandler _jwtHandler;
 
     #endregion
 
     #region Constructors
 
-    public ExternalLoginCommandHandler(IConfiguration configuration, Repository repository, IJwtHandler jwtHandler)
+    public ExternalLoginCommandHandler(IConfiguration configuration, Repository repository, JwtHandler jwtHandler)
     {
         _googleAuthConfigurationSection = configuration.GetSection(Constants.AuthConfigurationSectionKeys.AuthenticationGoogle);
         _repository = repository;
