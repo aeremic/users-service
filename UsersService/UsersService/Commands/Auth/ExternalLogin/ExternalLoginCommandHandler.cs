@@ -58,7 +58,7 @@ public class ExternalLoginCommandHandler : IRequestHandler<ExternalLoginCommand,
             result.Provider = request.Provider;
 
             var userInDb = await _repository.Users
-                .Where(user => user.Email == request.Email)
+                .Where(user => user.Email == payload.Email)
                 .FirstOrDefaultAsync(cancellationToken: cancellationToken);
 
             User? user;
@@ -70,7 +70,7 @@ public class ExternalLoginCommandHandler : IRequestHandler<ExternalLoginCommand,
             {
                 user = new User
                 {
-                    Email = request.Email,
+                    Email = payload.Email,
                     Role = (int) Constants.Role.Regular
                 };
                 await _repository.AddAsync(user, cancellationToken);
