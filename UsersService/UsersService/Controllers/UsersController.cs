@@ -1,10 +1,14 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UsersService.Queries.User.GetAllUsersData;
 using UsersService.Queries.User.GetUserData;
 
 namespace UsersService.Controllers;
 
+[Route("api/users")]
+[Authorize]
+[ApiController]
 public class UsersController : ControllerBase
 {
     #region Properties
