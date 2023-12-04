@@ -23,7 +23,7 @@ public class AuthController : ControllerBase
 
     #endregion
 
-    #region Methodsb        
+    #region Methods   
 
     /// <summary>
     /// Method for login in with a external provider.

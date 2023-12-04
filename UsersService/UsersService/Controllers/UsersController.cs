@@ -45,7 +45,7 @@ public class UsersController : ControllerBase
     /// </summary>
     /// <returns>Users data as a list.</returns>
     [HttpGet("[action]")]
-    public async Task<ActionResult<List<UsersDataDto>>> GetUsersData()
+    public async Task<ActionResult<List<UserDataDto>>> GetUsersData()
     {
         return await _mediator.Send(new GetUsersDataQuery());
     }
