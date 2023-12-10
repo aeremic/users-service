@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using UsersService.Models;
+using UsersService.Common.Models;
+using UsersService.Domains;
 using UsersService.Queries.User.GetAllUsersData;
 using UsersService.Queries.User.GetUserData;
 

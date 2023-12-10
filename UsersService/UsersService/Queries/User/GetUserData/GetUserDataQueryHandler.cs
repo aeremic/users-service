@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using UsersService.Common.Models;
 using UsersService.Infrastructure;
 
 namespace UsersService.Queries.User.GetUserData;
