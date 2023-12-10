@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using UsersService.Common.Models;
 using UsersService.Queries.User.GetAllUsersData;
 using UsersService.Queries.User.GetUserData;
 

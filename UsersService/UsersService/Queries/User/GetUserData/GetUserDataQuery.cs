@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using UsersService.Common.Models;
 
 namespace UsersService.Queries.User.GetUserData;
 

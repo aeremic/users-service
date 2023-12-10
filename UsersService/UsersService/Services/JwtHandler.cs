@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using UsersService.Common;
-using UsersService.Models;
+using UsersService.Domains;
 
 namespace UsersService.Services;
 
