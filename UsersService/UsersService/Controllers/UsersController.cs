@@ -7,7 +7,7 @@ using UsersService.Queries.User.GetUserData;
 
 namespace UsersService.Controllers;
 
-[Route("api/users")]
+[Route("api/[controller]")]
 [Authorize]
 [ApiController]
 public class UsersController : ControllerBase
